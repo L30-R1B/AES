@@ -1,4 +1,4 @@
-package process;
+package utils;
 
 public class Matrix {
     public static byte[][] matrixInit(byte [] vetor) {
@@ -15,7 +15,7 @@ public class Matrix {
         System.out.println("-----------------------");
         for (byte[] row : matriz) {
             for (byte b : row) {
-                System.out.printf("%02x ", b);
+                System.out.printf("%02x, ", b);
             }
             System.out.println();
         }

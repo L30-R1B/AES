@@ -1,6 +1,6 @@
-package const_values;
+package cipher;
 
-public class SBox {
+public class SubBytes {
     public static final byte[][] S_BOX_MATRIX = {
         {(byte)0x63,(byte)0x7c,(byte)0x77,(byte)0x7b,(byte)0xf2,(byte)0x6b,(byte)0x6f,(byte)0xc5,(byte)0x30,(byte)0x01,(byte)0x67,(byte)0x2b,(byte)0xfe,(byte)0xd7,(byte)0xab,(byte)0x76},
         {(byte)0xca,(byte)0x82,(byte)0xc9,(byte)0x7d,(byte)0xfa,(byte)0x59,(byte)0x47,(byte)0xf0,(byte)0xad,(byte)0xd4,(byte)0xa2,(byte)0xaf,(byte)0x9c,(byte)0xa4,(byte)0x72,(byte)0xc0},
@@ -20,7 +20,7 @@ public class SBox {
         {(byte)0x8c,(byte)0xa1,(byte)0x89,(byte)0x0d,(byte)0xbf,(byte)0xe6,(byte)0x42,(byte)0x68,(byte)0x41,(byte)0x99,(byte)0x2d,(byte)0x0f,(byte)0xb0,(byte)0x54,(byte)0xbb,(byte)0x16}
     };
 
-    public static void SBoxSwap(byte[][] matrix){
+    public static void SBoxSubBytesSwap(byte[][] matrix){
         matrix[0][0] = S_BOX_MATRIX[((matrix[0][0] & 0xF0) >> 4)][(matrix[0][0] & 0x0F)];
         matrix[0][1] = S_BOX_MATRIX[((matrix[0][1] & 0xF0) >> 4)][(matrix[0][1] & 0x0F)];
         matrix[0][2] = S_BOX_MATRIX[((matrix[0][2] & 0xF0) >> 4)][(matrix[0][2] & 0x0F)];
