@@ -19,4 +19,23 @@ public class SBox {
         {(byte)0xe1,(byte)0xf8,(byte)0x98,(byte)0x11,(byte)0x69,(byte)0xd9,(byte)0x8e,(byte)0x94,(byte)0x9b,(byte)0x1e,(byte)0x87,(byte)0xe9,(byte)0xce,(byte)0x55,(byte)0x28,(byte)0xdf},
         {(byte)0x8c,(byte)0xa1,(byte)0x89,(byte)0x0d,(byte)0xbf,(byte)0xe6,(byte)0x42,(byte)0x68,(byte)0x41,(byte)0x99,(byte)0x2d,(byte)0x0f,(byte)0xb0,(byte)0x54,(byte)0xbb,(byte)0x16}
     };
+
+    public static void SBoxSwap(byte[][] matrix){
+        matrix[0][0] = S_BOX_MATRIX[((matrix[0][0] & 0xF0) >> 4)][(matrix[0][0] & 0x0F)];
+        matrix[0][1] = S_BOX_MATRIX[((matrix[0][1] & 0xF0) >> 4)][(matrix[0][1] & 0x0F)];
+        matrix[0][2] = S_BOX_MATRIX[((matrix[0][2] & 0xF0) >> 4)][(matrix[0][2] & 0x0F)];
+        matrix[0][3] = S_BOX_MATRIX[((matrix[0][3] & 0xF0) >> 4)][(matrix[0][3] & 0x0F)];
+        matrix[1][0] = S_BOX_MATRIX[((matrix[1][0] & 0xF0) >> 4)][(matrix[1][0] & 0x0F)];
+        matrix[1][1] = S_BOX_MATRIX[((matrix[1][1] & 0xF0) >> 4)][(matrix[1][1] & 0x0F)];
+        matrix[1][2] = S_BOX_MATRIX[((matrix[1][2] & 0xF0) >> 4)][(matrix[1][2] & 0x0F)];
+        matrix[1][3] = S_BOX_MATRIX[((matrix[1][3] & 0xF0) >> 4)][(matrix[1][3] & 0x0F)];
+        matrix[2][0] = S_BOX_MATRIX[((matrix[2][0] & 0xF0) >> 4)][(matrix[2][0] & 0x0F)];
+        matrix[2][1] = S_BOX_MATRIX[((matrix[2][1] & 0xF0) >> 4)][(matrix[2][1] & 0x0F)];
+        matrix[2][2] = S_BOX_MATRIX[((matrix[2][2] & 0xF0) >> 4)][(matrix[2][2] & 0x0F)];
+        matrix[2][3] = S_BOX_MATRIX[((matrix[2][3] & 0xF0) >> 4)][(matrix[2][3] & 0x0F)];
+        matrix[3][0] = S_BOX_MATRIX[((matrix[3][0] & 0xF0) >> 4)][(matrix[3][0] & 0x0F)];
+        matrix[3][1] = S_BOX_MATRIX[((matrix[3][1] & 0xF0) >> 4)][(matrix[3][1] & 0x0F)];
+        matrix[3][2] = S_BOX_MATRIX[((matrix[3][2] & 0xF0) >> 4)][(matrix[3][2] & 0x0F)];
+        matrix[3][3] = S_BOX_MATRIX[((matrix[3][3] & 0xF0) >> 4)][(matrix[3][3] & 0x0F)];
+    }
 }

@@ -1,5 +1,4 @@
 package main;
-import const_values.MixColumns;
 import const_values.SBox;
 import process.Matrix;
 
@@ -11,11 +10,8 @@ public class Main {
 
         Matrix.printMatrix(bloco);
 
-        MixColumns mixColumns = new MixColumns();
-        Matrix.printMatrix(mixColumns.MIX_COLUMNS_MATRIX);
+        SBox.SBoxSwap(bloco);
 
-        SBox sBox = new SBox();
-        Matrix.printMatrix(sBox.S_BOX_MATRIX);
-
+        Matrix.printMatrix(bloco);
     }
 }
