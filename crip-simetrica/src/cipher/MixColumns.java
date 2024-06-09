@@ -23,31 +23,31 @@ public class MixColumns {
         }
         return p;
     }
-    public static void mixColumns(byte[][] state) {
+    public static void mixColumns(byte[][] bloco) {
         byte[] tempColumn = new byte[4];
         for (int c = 0; c < 4; c++) {
-            tempColumn[0] = (byte) (galoisMultiplication((byte) 0x02, state[0][c]) ^
-                                    galoisMultiplication((byte) 0x03, state[1][c]) ^
-                                    state[2][c] ^
-                                    state[3][c]);
+            tempColumn[0] = (byte) (galoisMultiplication((byte) 0x02, bloco[0][c]) ^
+                                    galoisMultiplication((byte) 0x03, bloco[1][c]) ^
+                                    bloco[2][c] ^
+                                    bloco[3][c]);
 
-            tempColumn[1] = (byte) (state[0][c] ^
-                                    galoisMultiplication((byte) 0x02, state[1][c]) ^
-                                    galoisMultiplication((byte) 0x03, state[2][c]) ^
-                                    state[3][c]);
+            tempColumn[1] = (byte) (bloco[0][c] ^
+                                    galoisMultiplication((byte) 0x02, bloco[1][c]) ^
+                                    galoisMultiplication((byte) 0x03, bloco[2][c]) ^
+                                    bloco[3][c]);
 
-            tempColumn[2] = (byte) (state[0][c] ^
-                                    state[1][c] ^
-                                    galoisMultiplication((byte) 0x02, state[2][c]) ^
-                                    galoisMultiplication((byte) 0x03, state[3][c]));
+            tempColumn[2] = (byte) (bloco[0][c] ^
+                                    bloco[1][c] ^
+                                    galoisMultiplication((byte) 0x02, bloco[2][c]) ^
+                                    galoisMultiplication((byte) 0x03, bloco[3][c]));
 
-            tempColumn[3] = (byte) (galoisMultiplication((byte) 0x03, state[0][c]) ^
-                                    state[1][c] ^
-                                    state[2][c] ^
-                                    galoisMultiplication((byte) 0x02, state[3][c]));
+            tempColumn[3] = (byte) (galoisMultiplication((byte) 0x03, bloco[0][c]) ^
+                                    bloco[1][c] ^
+                                    bloco[2][c] ^
+                                    galoisMultiplication((byte) 0x02, bloco[3][c]));
 
             for (int i = 0; i < 4; i++) {
-                state[i][c] = tempColumn[i];
+                bloco[i][c] = tempColumn[i];
             }
         }
     }

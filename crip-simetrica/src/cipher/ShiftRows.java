@@ -6,7 +6,7 @@ public class ShiftRows {
         array[i] = array[j];
         array[j] = temp;
     }
-
+    
     public static void shiftRows(byte [][]bloco){
         swap(bloco[1], 0, 1);
         swap(bloco[1], 1, 2);
