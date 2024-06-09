@@ -4,9 +4,13 @@ import utils.Matrix;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        byte [] block = {(byte) 0x32, (byte) 0x88, (byte) 0x31, (byte) 0xe0, (byte) 0x43, (byte) 0x5a, (byte) 0x31, (byte) 0x37, (byte) 0xf6, (byte) 0x30, (byte) 0x98, (byte) 0x07, (byte) 0xa8, (byte) 0x8d, (byte) 0xa2, (byte) 0x34};
+        byte [] block = {(byte) 0x39, (byte) 0x02, (byte) 0xdc, (byte) 0x19, (byte) 0x25, (byte) 0xdc, (byte) 0x11, (byte) 0x6a, (byte) 0x84, (byte) 0x89, (byte) 0x85, (byte) 0x0b, (byte) 0x1d, (byte) 0xfb, (byte) 0x97, (byte) 0x32};
+        
+        
         byte [][][] blocks = new byte[1][4][4];
         blocks[0] = Matrix.matrixInit(block);
+
+        Matrix.printMatrix(blocks[0]);
 
         Crypt.criptBlocks(blocks);
     }
