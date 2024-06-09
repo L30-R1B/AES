@@ -39,7 +39,7 @@ public class Dcrypt {
 
     }
 
-    public static byte [][] dcryptBlock(byte [][] matrix, byte [][][] keysRound){
+    private static byte [][] dcryptBlock(byte [][] matrix, byte [][][] keysRound){
         
         AddRoundKey.addRoundKey(matrix, keysRound[10]);
         InvShiftRows.invShiftRows(matrix);

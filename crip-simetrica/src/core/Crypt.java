@@ -39,7 +39,7 @@ public class Crypt {
 
     }
 
-    public static byte [][] cryptBlock(byte [][] matrix, byte [][][] keysRound){
+    private static byte [][] cryptBlock(byte [][] matrix, byte [][][] keysRound){
         
         AddRoundKey.addRoundKey(matrix, keysRound[0]);
 
