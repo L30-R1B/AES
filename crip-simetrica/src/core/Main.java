@@ -1,6 +1,8 @@
 package core;
 
 import text.TextEncoding;
+import text.TextDecoding;
+import utils.FileManipulation;
 
 public class Main {
     public static final byte [][] KEY = {
@@ -11,6 +13,10 @@ public class Main {
     };
 
     public static void main(String[] args) throws Exception {
+        FileManipulation.deleteFileIfExists("saida.txt");
+        FileManipulation.deleteFileIfExists("entradaD.txt");
+
         TextEncoding.textEncoding("entrada.txt", "saida.txt", KEY);
+        TextDecoding.textDecoding("saida.txt", "entradaD.txt", KEY);
     }
 }

@@ -43,7 +43,6 @@ public class BlocksConvert {
 
         String blockStrLenAdjust = adjustStringLength(blockStr, 16, '\0');
         byte [] arrayBytes = blockStrLenAdjust.getBytes();
-        
         return Matrix.matrixInit(arrayBytes);
     }
 }
