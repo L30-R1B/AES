@@ -19,6 +19,7 @@ public class TextEncoding {
         try (BufferedReader reader = new BufferedReader(new FileReader(initFile))) {
             arqInitLines = FileManipulation.readFileAsLines(reader);
         }catch(IOException e){
+            System.out.println("ERRO");
             return;
         }
 
