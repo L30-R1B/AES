@@ -2,23 +2,21 @@ package utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileManipulation {
 
-    public static String[] readFileAsLines(String filePath) {
+    public static String[] readFileAsLines(BufferedReader reader) {
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try {
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 lines.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
             return null;
         }
 
