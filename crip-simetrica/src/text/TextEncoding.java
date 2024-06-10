@@ -24,14 +24,13 @@ public class TextEncoding {
 
         byte [][][] keysRound = RoundKeyGenerate.roundKeyGenerate(key);
 
-        for(String line : arqInitLines){
-            byte [][][] blocks = BlocksConvert.blocksConverter(line);
-            byte [][][] blocksCript = Crypt.criptBlocks(blocks, keysRound);
-
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(destFile, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destFile, true))) {
+            for(String line : arqInitLines){
+                byte [][][] blocks = BlocksConvert.blocksConverter(line);
+                byte [][][] blocksCript = Crypt.criptBlocks(blocks, keysRound);
                 FileManipulation.writeByteMatrixToFile(blocksCript, writer);
-            } catch (IOException e) {
             }
+        } catch (IOException e) {
         }
     }
 }

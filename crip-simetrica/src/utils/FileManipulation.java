@@ -36,7 +36,7 @@ public class FileManipulation {
                 writer.newLine();  
             }
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
 }
