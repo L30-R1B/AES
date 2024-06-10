@@ -10,7 +10,25 @@ public class RoundKeyGenerate {
         {(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00}
     };
 
-    public static byte[][] roundKeyGenerate(byte [][]roundKey, byte idRconMatrix){
+    public static byte [][][] roundKeyGenerate(byte [][] key){
+        byte [][][] keysRound = new byte[11][4][4];
+
+        keysRound[0] = key;
+        keysRound[1] = keyExpand(keysRound[0], (byte) 0);
+        keysRound[2] = keyExpand(keysRound[1], (byte) 1);
+        keysRound[3] = keyExpand(keysRound[2], (byte) 2);
+        keysRound[4] = keyExpand(keysRound[3], (byte) 3);
+        keysRound[5] = keyExpand(keysRound[4], (byte) 4);
+        keysRound[6] = keyExpand(keysRound[5], (byte) 5);
+        keysRound[7] = keyExpand(keysRound[6], (byte) 6);
+        keysRound[8] = keyExpand(keysRound[7], (byte) 7);
+        keysRound[9] = keyExpand(keysRound[8], (byte) 8);
+        keysRound[10] = keyExpand(keysRound[9], (byte) 9);
+
+        return keysRound;
+    }
+
+    private static byte[][] keyExpand(byte [][]roundKey, byte idRconMatrix){
         byte [][]newRoundKey = new byte[4][4];
 
         byte [] lastColumn = {
