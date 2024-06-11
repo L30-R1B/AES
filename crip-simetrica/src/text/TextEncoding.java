@@ -12,7 +12,7 @@ import utils.RoundKeyGenerate;
 
 public class TextEncoding {
 
-    public static void textEncoding(String initFile, String destFile, byte[][] key) {
+    public static boolean textEncoding(String initFile, String destFile, byte[][] key) {
 
         String arqInitLines;
 
@@ -20,10 +20,8 @@ public class TextEncoding {
             arqInitLines = FileManipulation.readFileAsString(reader);
         } catch (IOException e) {
             System.out.println("ERRO");
-            return;
+            return true;
         }
-
-        System.out.print(arqInitLines);
 
         byte[][][] keysRound = RoundKeyGenerate.roundKeyGenerate(key);
 
@@ -32,6 +30,8 @@ public class TextEncoding {
             byte[][][] blocksCript = Crypt.criptBlocks(blocks, keysRound);
             FileManipulation.writeByteMatrixToFile(blocksCript, writer);
         } catch (IOException e) {
+            return true;
         }
+        return false;
     }
 }

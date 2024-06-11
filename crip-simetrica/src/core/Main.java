@@ -1,8 +1,10 @@
 package core;
 
+import org.w3c.dom.Text;
 import text.TextEncoding;
 import text.TextDecoding;
 import utils.FileManipulation;
+import utils.BlocksConvert;
 
 public class Main {
     public static final byte [][] KEY = {
@@ -13,10 +15,32 @@ public class Main {
     };
 
     public static void main(String[] args) throws Exception {
-        FileManipulation.deleteFileIfExists("saida.txt");
-        FileManipulation.deleteFileIfExists("entradaD.txt");
-
-        TextEncoding.textEncoding("entrada.txt", "saida.txt", KEY);
-        TextDecoding.textDecoding("saida.txt", "entradaD.txt", KEY);
+        if (args.length != 5) {
+            System.out.println("Número de argumentos inválidos ! ! !");
+            return;
+        }
+    
+        String command = args[0];
+        String fileName = args[2];
+        byte[][] key = BlocksConvert.blockConverter(args[1]);
+    
+        boolean result = false;
+    
+        switch (command) {
+            case "CRIPT":
+                result = TextEncoding.textEncoding(fileName, args[3], key);
+                break;
+            case "DCRIP":
+                result = TextDecoding.textDecoding(fileName, args[3], key);
+                break;
+            default:
+                System.out.println("Comando inválido");
+                return;
+        }
+    
+        if (args[4].equals("n") && !result) {
+            FileManipulation.deleteFileIfExists(fileName);
+        }
     }
+    
 }

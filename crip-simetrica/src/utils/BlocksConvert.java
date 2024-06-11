@@ -39,7 +39,7 @@ public class BlocksConvert {
         return blocks;
     }
 
-    private static byte [][] blockConverter(String blockStr){
+    public static byte [][] blockConverter(String blockStr){
 
         String blockStrLenAdjust = adjustStringLength(blockStr, 16, '\0');
         byte [] arrayBytes = blockStrLenAdjust.getBytes();

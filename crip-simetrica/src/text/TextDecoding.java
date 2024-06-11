@@ -25,13 +25,13 @@ public class TextDecoding {
 
         return result;
     }
-    public static void textDecoding(String initFile, String destFile, byte [][] key){
+    public static boolean textDecoding(String initFile, String destFile, byte [][] key){
         byte [][][] blocks;
         try(BufferedReader reader = new BufferedReader(new FileReader(initFile))){
             blocks = FileManipulation.readMatricesFromFile(reader);
         }catch(IOException e){
             System.out.println("Erro");
-            return;
+            return true;
         }
 
         byte [][][] keysRound = RoundKeyGenerate.roundKeyGenerate(key);
@@ -42,6 +42,8 @@ public class TextDecoding {
             FileManipulation.appendStringsToFile(text, writer);
             
         } catch (IOException e) {
+            return true;
         }
+        return false;
     }
 }
