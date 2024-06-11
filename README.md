@@ -1,10 +1,16 @@
 # AES
 
-Este é um guia para a implementação do algoritmo de criptografia simétrica AES em Java. Os comandos serão dados como argumentos na chamada do programa.
+Este é um guia para o uso do algoritmo de criptografia simétrica AES em Java. 
+Os comandos serão dados como argumentos na chamada do programa.
 
 ## Comandos
 
 ### CRIPT
+
+**Chamada:**
+```
+CRIPT <k> <initFile> <encFile> <m>
+```
 Comando utilizado para criptografar um arquivo de texto. Utilize os seguintes argumentos:
 
 - `k`: Chave de codificação.
@@ -13,6 +19,11 @@ Comando utilizado para criptografar um arquivo de texto. Utilize os seguintes ar
 - `m`: 'n' se o arquivo "initFile" deve ser apagado ao fim do comando, ou qualquer outro valor caso contrário.
 
 ### DCRIP
+
+**Chamada:**
+```
+DCRIP <k> <initFile> <decFile> <m>
+```
 Comando utilizado para decriptografar um arquivo de texto. Utilize os seguintes argumentos:
 
 - `k`: Chave de decodificação.
