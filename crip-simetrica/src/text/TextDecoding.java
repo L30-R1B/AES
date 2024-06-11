@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import utils.FileManipulation;
-import utils.Matrix;
 import utils.RoundKeyGenerate;
 
 public class TextDecoding {
@@ -39,9 +38,6 @@ public class TextDecoding {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(destFile, true))) {
             byte [][][] blocksDcript = Dcrypt.dcriptBlocks(blocks, keysRound);
-            for(byte [][] block : blocksDcript){
-                Matrix.printMatrix(block);
-            }
             String [] text = convertMatricesToStringArray(blocksDcript);
             FileManipulation.appendStringsToFile(text, writer);
             

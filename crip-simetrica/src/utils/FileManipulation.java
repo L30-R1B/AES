@@ -25,16 +25,17 @@ public class FileManipulation {
 
     public static void appendStringsToFile(String[] data, BufferedWriter writer) {
         try {
-            for (String str : data) {
-                for (int i = 0; i < str.length(); i++) {
-                    char c = str.charAt(i);
-                    if (c != '\0') {
-                        writer.write(c);
-                    }
+            int len = data.length;
+            for (int i = 0; i < len - 1; i ++) {
+                writer.write(data[i]);
+            }
+            for(int i = 0; i < 16; i ++){
+                char c = data[len - 1].charAt(i);
+                if (c != '\0') {
+                    writer.write(c);
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
     
@@ -84,6 +85,21 @@ public class FileManipulation {
         }
 
         return lines.toArray(new String[0]);
+    }
+
+    public static String readFileAsString(BufferedReader reader) {
+        StringBuilder content = new StringBuilder();
+
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n"); // Adiciona uma nova linha após cada linha lida
+            }
+        } catch (IOException e) {
+            return null;
+        }
+
+        return content.toString();
     }
 
     public static void writeByteMatrixToFile(byte[][][] data, BufferedWriter writer) {
