@@ -9,7 +9,7 @@ Os comandos serão dados como argumentos na chamada do programa.
 
 **Chamada:**
 ```
-CRIPT <k> <initFile> <encFile> <m>
+CRIPT <String k> <String initFile> <String encFile> <char m>
 ```
 Comando utilizado para criptografar um arquivo de texto. Utilize os seguintes argumentos:
 
@@ -22,7 +22,7 @@ Comando utilizado para criptografar um arquivo de texto. Utilize os seguintes ar
 
 **Chamada:**
 ```
-DCRIP <k> <initFile> <decFile> <m>
+DCRIP <String k> <String initFile> <String decFile> <char m>
 ```
 Comando utilizado para decriptografar um arquivo de texto. Utilize os seguintes argumentos:
 
